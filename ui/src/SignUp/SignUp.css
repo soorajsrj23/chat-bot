@@ -1,0 +1,85 @@
+/* Add these styles to your existing SignUp.css */
+
+/* Neon-themed styling */
+.signup-container {
+  background-color:var(--dark);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.icon-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.selected-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background-color:transparent;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.selected-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.fileInputLabel {
+  display: block;
+  text-align: center;
+  color: #6a2dab4d;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Other styles... */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .signup-form {
+    padding: 15px;
+  }
+}
+
+/* Neon glow effect */
+.neon-glow {
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+  }
+}
+.fileInput {
+  display: none;
+  font-family: 'Exo', sans-serif;
+  background-color: transparent;
+ 
+}
+
+.inputsFieldName {
+  font-family: 'Exo', sans-serif;
+  font-size: 20px;
+}
+i{
+font-size: 50px;
+}
