@@ -22,7 +22,7 @@ const Login = () => {
 
       // Redirect to profile page
   //    toast.success("Login Successfull");
-     navigate('/todo');
+     navigate('/chat');
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setError('Invalid email or password');
