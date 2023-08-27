@@ -49,7 +49,6 @@ const io = socketIO(server, {
 
 app.use(express.json());
 
-const manager = new NlpManager({ languages: ['en'] });
 
 
 
@@ -114,8 +113,7 @@ manager.train();
 manager.addAnswer('en', 'greeting', 'Hello! How can I help you today?');
 manager.addAnswer('en', 'support', "I'm here to support you. How can I assist you?");
 */
-
-
+const manager = new NlpManager({ languages: ['en'] });
 for (const intentData of dataset.intents) {
   const intent = intentData.intent;
   const text = intentData.text;
@@ -125,9 +123,11 @@ for (const intentData of dataset.intents) {
     manager.addDocument('en', trainingText, intent);
   }
 
-  manager.addAnswer('en', intent, responses.join('\n'));
+  const randomResponseIndex = Math.floor(Math.random() * responses.length);
+  const randomResponse = responses[randomResponseIndex];
+  
+  manager.addAnswer('en', intent, randomResponse); // Add a random response
 }
-
 // Train the manager
 manager.train();
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
@@ -185,7 +185,7 @@ io.on('connection', (socket) => {
 
 // Handle user registration
 app.post('/signup', upload.single('image'), async (req, res) => {
-  const { name, email, password, bio, phone } = req.body;
+  const { name, email, password } = req.body;
   const { originalname, mimetype, buffer } = req.file;
 
   try {
@@ -222,14 +222,6 @@ app.post('/signup', upload.single('image'), async (req, res) => {
   
 
 });
-
-
-
-
-
-
-
-
 
 
 
