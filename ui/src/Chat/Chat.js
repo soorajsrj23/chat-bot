@@ -1,25 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import axios from 'axios'; // Import axios for making HTTP requests
-import chatBotImg from '../Assets/chatbotImg.png'
-import './Chat.css'; // Import your CSS file
+import axios from 'axios';
+import Result from '../Assets/result.png'
+import chatBotImg from '../Assets/intro.png';
+import cryingAvatar from '../Assets/sad.png';
+import laughingAvatar from '../Assets/happy.png';
+// ... Import other avatar images
+import './Chat.css';
 
 const ChatComponent = () => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState('');
   const [chat, setChat] = useState([]);
   const [previousMessages, setPreviousMessages] = useState([]);
+  const [detectedEmotion, setDetectedEmotion] = useState('');
+
+  const defaultEmotion = 'neutral';
+
+
+  const emotionAvatarMap = {
+    Depression: cryingAvatar,
+    PositiveDistractions: laughingAvatar,
+    Greeting:chatBotImg,
+
+    // ... Add other emotions and their corresponding avatar images
+    neutral: Result,
+  };
 
   useEffect(() => {
     const newSocket = io('http://localhost:4000');
     setSocket(newSocket);
 
     newSocket.on('message', (data) => {
-      setChat([...chat, { text: data, user: 'bot' }]);
+      const { intent, message } = data;
+      setChat([...chat, { text: message, user: 'bot', intent }]);
+      setDetectedEmotion(intent);
     });
 
-    // Fetch previous chat messages with authorization token
-    const token = localStorage.getItem('authToken'); // Assuming the token is stored in localStorage
+    const token = localStorage.getItem('authToken');
     axios.get('/previousChat', {
       headers: {
         Authorization: `Bearer ${token}`
@@ -48,7 +66,11 @@ const ChatComponent = () => {
     <div className="container chat-container">
       <div className="row">
         <div className="col-md-6 chat-section chat-image">
-          <img src={chatBotImg} alt="Chatbot" className="img-fluid" />
+        <img
+            src={emotionAvatarMap[detectedEmotion] || emotionAvatarMap[defaultEmotion]}
+            alt="Chatbot"
+            className="img-fluid"
+          />
         </div>
         <div className="col-md-6 chat-section chat-messages">
           <div className="chat-header">
@@ -87,7 +109,7 @@ const ChatComponent = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default ChatComponent;

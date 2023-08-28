@@ -19,7 +19,7 @@
 
 /* Chat messages section */
 .chat-messages {
-  height: 800px;
+  height: 700px;
   overflow-y: scroll;
   border: 1px solid #ccc;
   padding: 10px;

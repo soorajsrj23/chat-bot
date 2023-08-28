@@ -159,7 +159,7 @@ io.on('connection', (socket) => {
     await botMessage.save();
     console.log(response)
 
-    socket.emit('message', response.answer);
+    socket.emit('message', { intent: response.intent, message: response.answer });
     } catch (error) {
       console.log('Error saving chat message:', error);
     }
