@@ -63,10 +63,6 @@ const ChatComponent = () => {
       <Navbar/>
       <div className="row">
         <div className="col-md-12 chat-section chat-messages">
-          <div className="chat-header">
-            <h2 className="chat-title">Futuristic Chatbot</h2>
-           
-          </div>
           <div className="chat-messages"  ref={chatMessagesRef} >
             {chats.map((chat, index) => (
               <div
@@ -95,14 +91,14 @@ const ChatComponent = () => {
           </div>
           <div className="input-container">
             <input
-              className="form-control message-input"
+              className=" message-input"
               type="text"
               value={message}
-              placeholder="Type your message here..."
+              placeholder="   Type your message here..."
               onChange={(e) => setMessage(e.target.value)}
               required 
             />
-            <button className="btn btn-primary send-button" onClick={sendMessage}>
+            <button className="btn btn-outline-secondary send-button" onClick={sendMessage}>
               Send
             </button>
           </div>

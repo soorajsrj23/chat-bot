@@ -61,7 +61,7 @@
 
 /* Dark Theme */
 .navbar-dark {
-  background-color: #343a40; /* Dark background color */
+  background-color: #30353a; /* Dark background color */
   color: #f8f9fa; /* Dark text color */
 }
 
@@ -77,4 +77,13 @@
 .dark-theme {
   background-color: #343a40; /* Dark background color for the entire page */
   color: #f8f9fa; /* Dark text color for the entire page */
+
 }
+
+
+.dark-theme input, .dark-theme input:focus,.dark-theme input::placeholder{
+  background-color: #343a40; /* Dark background color for the entire page */
+  color: #f8f9fa; 
+  
+}
+
