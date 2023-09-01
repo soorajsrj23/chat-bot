@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
-import Result from '../Assets/result.png'
-import chatBotImg from '../Assets/intro.png';
-import cryingAvatar from '../Assets/sad.png';
+
+import anxious from '../Assets/anxious.png';
 import laughingAvatar from '../Assets/happy.png';
-// ... Import other avatar images
+import userIcon from '../Assets/userIcon.jpeg';
 import './Chat.css';
 
 const ChatComponent = () => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState('');
-  const [chat, setChat] = useState([]);
-  const [previousMessages, setPreviousMessages] = useState([]);
+  const [chats, setChats] = useState([]);
   const [detectedEmotion, setDetectedEmotion] = useState('');
-
   const defaultEmotion = 'neutral';
 
-
   const emotionAvatarMap = {
-    Depression: cryingAvatar,
+    Depression: anxious,
     PositiveDistractions: laughingAvatar,
-    Greeting:chatBotImg,
-
-    // ... Add other emotions and their corresponding avatar images
-    neutral: Result,
+    neutral: laughingAvatar,
   };
 
   useEffect(() => {
@@ -32,22 +25,19 @@ const ChatComponent = () => {
     setSocket(newSocket);
 
     newSocket.on('message', (data) => {
-      const { intent, message } = data;
-      setChat([...chat, { text: message, user: 'bot', intent }]);
+      const { intent, message, user } = data;
+      const newChatEntry = { text: message, user, intent };
+      setChats((prevChats) => [...prevChats, newChatEntry]);
       setDetectedEmotion(intent);
     });
 
-    const token = localStorage.getItem('authToken');
-    axios.get('/previousChat', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(response => {
-        setPreviousMessages(response.data.messages);
+    axios
+      .get('http://localhost:4000/previousChat')
+      .then((response) => {
+        setChats(response.data.chats);
       })
-      .catch(error => {
-        console.error(error);
+      .catch((error) => {
+        console.error(error.message);
       });
 
     return () => newSocket.disconnect();
@@ -55,44 +45,44 @@ const ChatComponent = () => {
 
   const sendMessage = () => {
     if (socket) {
-      socket.emit('message', message);
-      setChat([...chat, { text: message, user: 'user' }]);
-      setPreviousMessages([...previousMessages, message]);
+      socket.emit('message', { text: message, user: 'user' });
+      const newChatEntry = { text: message, user: 'user' };
+      setChats((prevChats) => [...prevChats, newChatEntry]);
       setMessage('');
     }
   };
 
   return (
-    <div className="container chat-container">
+    <div className="container-fluid chat-container">
       <div className="row">
-        <div className="col-md-6 chat-section chat-image">
-        <img
-            src={emotionAvatarMap[detectedEmotion] || emotionAvatarMap[defaultEmotion]}
-            alt="Chatbot"
-            className="img-fluid"
-          />
-        </div>
-        <div className="col-md-6 chat-section chat-messages">
+        <div className="col-md-12 chat-section chat-messages">
           <div className="chat-header">
             <h2 className="chat-title">Futuristic Chatbot</h2>
           </div>
           <div className="chat-messages">
-            {/* Previous chat messages */}
-            <div className="previous-messages">
-              {previousMessages.map((msg, index) => (
-                <div key={index} className="previous-message user-message">
-                  You: {msg}
+            {chats.map((chat, index) => (
+              <div
+                key={index}
+                className={`chat-message ${
+                  chat.user === 'user' ? 'user' : 'bot'
+                }`}
+              >
+                <div className={`${chat.user === 'user' ? 'user' : 'bot'}-icon`}>
+                  <img
+                    src={
+                      chat.user === 'user'
+                        ? userIcon
+                        : emotionAvatarMap[chat.intent] ||
+                          emotionAvatarMap[defaultEmotion]
+                    }
+                    alt={chat.user}
+                  />
                 </div>
-              ))}
-            </div>
-            {/* Current chat messages */}
-            <div className="current-messages">
-              {chat.map((msg, index) => (
-                <div key={index} className={`chat-message ${msg.user}`}>
-                  {msg.text}
+                <div className={`${chat.user === 'user' ? 'user' : 'bot'}-message`}>
+                  {chat.text || chat.message}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
           <div className="input-container">
             <input

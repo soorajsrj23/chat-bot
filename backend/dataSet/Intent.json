@@ -108,7 +108,7 @@
     {
       "intent": "Coping Strategies",
       "text": [
-        "What are healthy coping strategies?",
+        "How to be healthy",
         "How can I cope with stress?",
         "Give me coping techniques",
         "Help me manage my emotions"
@@ -474,6 +474,21 @@
         "Dealing with loneliness involves seeking connection. Volunteer, participate in hobbies, or attend local events to meet new people.",
         "Coping with loneliness requires self-compassion. Engage in self-care, practice positive self-talk, and consider seeking professional support.",
         "Combatting loneliness is important for well-being. Foster meaningful relationships, express your needs, and engage in activities that bring you joy."
+      ]
+    },
+    {
+      "intent": "name",
+      "text": [
+        "name",
+        "what is your name",
+        "who are you",
+        "who is this"
+      ],
+      "responses": [
+        "Kingini",
+        "I am kingini",
+        "A chatbot which helps you to improve mental health",
+        "A chatbot named  kingini"
       ]
     },
     {
