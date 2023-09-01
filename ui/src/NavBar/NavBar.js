@@ -55,8 +55,8 @@ function Navbar() {
             <a className="nav-link" href="/profile">Profile</a>
           </li>
         </ul>
-        <button className="btn btn-outline-primary" onClick={toggleTheme}>
-          Toggle Theme
+        <button className="btn btn-outline-secondary" onClick={toggleTheme}>
+          Change Theme
         </button>
         {profile.image && (
           <div className="user-image">

@@ -123,13 +123,17 @@ for (const intentData of dataset.intents) {
     manager.addDocument('en', trainingText, intent);
   }
 
-  const randomResponseIndex = Math.floor(Math.random() * responses.length);
-  const randomResponse = responses[randomResponseIndex];
-  
-  manager.addAnswer('en', intent, randomResponse); // Add a random response
+  for (const response of responses) {
+    manager.addAnswer('en', intent, response);
+  }
 }
-// Train the manager
+
 manager.train();
+
+// Optionally, persist the trained model
+
+
+
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 let connectedUsers=0;
 
@@ -159,14 +163,42 @@ io.on('connection', (socket) => {
     await botMessage.save();
     console.log(response)
 
-    socket.emit('message', { intent: response.intent, message: response.answer,user:'bot' });
-    } catch (error) {
-      console.log('Error saving chat message:', error);
+    const confidenceThreshold = 0.7; // Adjust as needed
+    if (response.score < confidenceThreshold || response.intent === 'None') {
+      // Generate a custom response based on the user's query
+      const customResponse = generateCustomResponse(data.text);
+      
+      // Save the bot's custom response to the database
+      const botMessage = new Chat({ user: 'bot', message: customResponse });
+      await botMessage.save();
+      
+      // Send the custom response to the client
+      socket.emit('message', { intent: 'CustomResponse', message: customResponse, user: 'bot' });
+    } else {
+      // Send the recognized intent and response to the client
+      socket.emit('message', { intent: response.intent, message: response.answer, user: 'bot' });
     }
-  });
+  } catch (error) {
+    console.log('Error saving chat message:', error);
+  }
+});
   
 
+function generateCustomResponse(userQuery) {
+  // Implement your custom logic to generate a response based on the user's query here
+  // You can use keyword matching, pattern recognition, or other techniques
+  
+  // Example: If the user query contains the word "help," generate a help response
+  if (userQuery.toLowerCase().includes('help')) {
+    return "Sure, I can help you with that!";
+  }
+  
+  // Handle other cases or queries as needed
+  // ...
 
+  // If no specific pattern is matched, provide a general response
+  return "I'm not sure I understand. Can you please provide more details or rephrase your question?";
+}
 
   // Handle disconnection
   socket.on('disconnect', () => {
