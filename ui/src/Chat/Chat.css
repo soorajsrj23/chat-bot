@@ -2,8 +2,7 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  border: 1px solid #ccc;
+  height: 500px;
 }
 
 /* Chat header */
@@ -17,14 +16,18 @@
 /* Chat messages */
 .chat-messages {
   flex-grow: 1;
-  padding: 20px;
-  overflow-y: scroll;
+  padding: 10px;
+  height: 610px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 /* User and bot messages */
 .chat-message {
   display: flex;
   margin-bottom: 15px;
+
 }
 
 .user-message {
@@ -42,11 +45,18 @@
   margin-right: 10px;
 }
 
-.user-icon img, .bot-icon img {
-  width: 40px;
-  height: 40px;
+ .bot-icon img {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 }
+.user-icon img{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+
 
 /* Message text */
 .user-message {
@@ -54,6 +64,7 @@
   border-radius: 10px;
   background-color: #f0f0f0;
   max-width: 60%;
+ 
 }
 .bot-message {
   padding: 10px;
@@ -66,34 +77,22 @@
 .input-container {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 2px;
   background-color: #f5f5f5;
 }
 
 .message-input {
   flex-grow: 1;
-  padding: 10px;
+  padding: 2px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  
 }
 
 .send-button {
   margin-left: 10px;
 }
 
-/* Adjust scrollbar styles */
-.chat-messages::-webkit-scrollbar {
-  width: 8px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 4px;
-}
-
-.chat-messages::-webkit-scrollbar-track {
-  background-color: #f5f5f5;
-}
 
 .user {
   justify-content: flex-end; /* Right-align user messages */
@@ -102,4 +101,8 @@
 /* Bot message container */
 .bot {
   justify-content: flex-start; /* Left-align bot messages */
+}
+.chat-section{
+  height:   740px;
+  
 }

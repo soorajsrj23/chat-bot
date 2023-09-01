@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import { useRef } from 'react';
 
 import anxious from '../Assets/anxious.png';
 import laughingAvatar from '../Assets/happy.png';
 import userIcon from '../Assets/userIcon.jpeg';
 import './Chat.css';
+import Navbar from '../NavBar/NavBar';
 
 const ChatComponent = () => {
   const [socket, setSocket] = useState(null);
@@ -13,6 +15,8 @@ const ChatComponent = () => {
   const [chats, setChats] = useState([]);
   const [detectedEmotion, setDetectedEmotion] = useState('');
   const defaultEmotion = 'neutral';
+  const chatMessagesRef = useRef(null);
+ 
 
   const emotionAvatarMap = {
     Depression: anxious,
@@ -49,23 +53,28 @@ const ChatComponent = () => {
       const newChatEntry = { text: message, user: 'user' };
       setChats((prevChats) => [...prevChats, newChatEntry]);
       setMessage('');
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
     }
   };
 
   return (
-    <div className="container-fluid chat-container">
+   
+    <div className="container-fluid chat-container ">
+      <Navbar/>
       <div className="row">
         <div className="col-md-12 chat-section chat-messages">
           <div className="chat-header">
             <h2 className="chat-title">Futuristic Chatbot</h2>
+           
           </div>
-          <div className="chat-messages">
+          <div className="chat-messages"  ref={chatMessagesRef} >
             {chats.map((chat, index) => (
               <div
                 key={index}
                 className={`chat-message ${
                   chat.user === 'user' ? 'user' : 'bot'
                 }`}
+               
               >
                 <div className={`${chat.user === 'user' ? 'user' : 'bot'}-icon`}>
                   <img
@@ -78,7 +87,7 @@ const ChatComponent = () => {
                     alt={chat.user}
                   />
                 </div>
-                <div className={`${chat.user === 'user' ? 'user' : 'bot'}-message`}>
+                <div className={`${chat.user === 'user' ? 'user' : 'bot'}-message`}  >
                   {chat.text || chat.message}
                 </div>
               </div>
@@ -91,6 +100,7 @@ const ChatComponent = () => {
               value={message}
               placeholder="Type your message here..."
               onChange={(e) => setMessage(e.target.value)}
+              required 
             />
             <button className="btn btn-primary send-button" onClick={sendMessage}>
               Send
@@ -99,6 +109,7 @@ const ChatComponent = () => {
         </div>
       </div>
     </div>
+   
   );
 };
 

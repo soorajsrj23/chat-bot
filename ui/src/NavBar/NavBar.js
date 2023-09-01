@@ -6,12 +6,13 @@ function Navbar() {
   const API_BASE = "http://localhost:4000";
 
   const [profile, setProfile] = useState({});
+  const [theme, setTheme] = useState('light'); // Initialize with 'light' theme
 
   useEffect(() => {
-    GetProfile();
+    getProfile();
   }, []);
 
-  const GetProfile = async () => {
+  const getProfile = async () => {
     try {
       const response = await axios.get(API_BASE + "/current-user", {
         headers: {
@@ -26,8 +27,17 @@ function Navbar() {
     }
   }
 
+  const toggleTheme = () => {
+    // Toggle between 'light' and 'dark' themes
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+
+    // You can apply the new theme to your entire website here
+    document.body.classList.toggle('dark-theme', newTheme === 'dark');
+  }
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className={`navbar navbar-expand-lg ${theme === 'dark' ? 'navbar-dark' : 'navbar-light'}`}>
       <a className="navbar-brand">
         <h3 className="fas fa-rocket">Welcome {profile.name}</h3>
       </a>
@@ -45,11 +55,14 @@ function Navbar() {
             <a className="nav-link" href="/profile">Profile</a>
           </li>
         </ul>
-         {profile.image && (
+        <button className="btn btn-outline-primary" onClick={toggleTheme}>
+          Toggle Theme
+        </button>
+        {profile.image && (
           <div className="user-image">
             <img src={`data:${profile.image.contentType};base64,${profile.image.data}`} alt="User" className="rounded-circle" />
           </div>
-        )} 
+        )}
       </div>
     </nav>
   );

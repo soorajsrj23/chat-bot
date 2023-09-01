@@ -41,3 +41,40 @@
     width: 40px;
     border-radius: 50%;
   }
+
+
+  /* NavBar.css */
+
+/* Light Theme */
+.navbar-light {
+  background-color: #f8f9fa; /* Light background color */
+  color: #343a40; /* Light text color */
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-color: #343a40; /* Dark color for the toggler icon in light theme */
+}
+
+.navbar-light .nav-link {
+  color: #343a40; /* Light link text color */
+}
+
+/* Dark Theme */
+.navbar-dark {
+  background-color: #343a40; /* Dark background color */
+  color: #f8f9fa; /* Dark text color */
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-color: #f8f9fa; /* Light color for the toggler icon in dark theme */
+}
+
+.navbar-dark .nav-link {
+  color: #f8f9fa; /* Dark link text color */
+}
+
+/* Dark Theme Body */
+.dark-theme {
+  background-color: #343a40; /* Dark background color for the entire page */
+  color: #f8f9fa; /* Dark text color for the entire page */
+}

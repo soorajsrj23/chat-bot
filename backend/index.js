@@ -276,6 +276,59 @@ app.get("/previousChat",  async (req, res) => {
   }
 });
 
+
+app.get("/current-user", authenticate, async (req, res) => {
+  res.status(200).json(req.user);
+});
+
+
+
+app.put("/edit-profile", authenticate, upload.single("image"), async (req, res) => {
+  const { email, password, name } = req.body;
+  const { user } = req;
+
+  try {
+    // Create an object to store the updated fields
+    const updatedFields = {};
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    // Update user fields if provided
+    if (email) updatedFields.email = email;
+    if (password) updatedFields.password = hashedPassword;
+    if (name) updatedFields.name = name;
+    // Update user image if provided
+    if (req.file) {
+      updatedFields["image.data"] = req.file.buffer;
+      updatedFields["image.contentType"] = req.file.mimetype;
+    }
+
+    // Update the user using findOneAndUpdate
+    const updatedUser = await User.findOneAndUpdate({ _id: user._id }, updatedFields, {
+      new: true, // Return the updated user as the result
+    });
+
+    // Convert image data to base64 string
+    const base64Image = updatedUser.image.data.toString("base64");
+
+    // Create a modified user object with the encoded image
+    const modifiedUser = {
+      ...updatedUser._doc,
+      image: {
+        data: base64Image,
+        contentType: updatedUser.image.contentType,
+      },
+    };
+
+    res.status(200).json(modifiedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
+
 const PORT = 4000;
 server.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
