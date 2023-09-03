@@ -2,8 +2,6 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 500px;
- 
 }
 
 /* Chat header */
@@ -17,23 +15,27 @@
   overflow-y: auto;
   overflow-x: hidden;
   word-wrap: break-word;
+ 
 }
 
 /* User and bot messages */
 .chat-message {
   display: flex;
   margin-bottom: 15px;
+ 
 
 }
 
 .user-message {
   justify-content: flex-end;
   text-align: right;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .bot-message {
   justify-content: flex-start;
   text-align: left;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 /* Avatar icon */
@@ -45,6 +47,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .user-icon img{
   width: 20px;
@@ -80,8 +83,8 @@
 .message-input {
   flex-grow: 1;
   border: 1px solid #c4c5c7;
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 6px;
+  height: 50px;
   
 }
 
@@ -100,7 +103,7 @@
   justify-content: flex-start; /* Left-align bot messages */
 }
 .chat-section{
-  height:   740px;
+  height:   770px;
   
 }
 

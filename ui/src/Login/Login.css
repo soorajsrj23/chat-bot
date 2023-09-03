@@ -1,6 +1,6 @@
 :root{
-  --primary:#D81E58;
-  --secondary:#8A4EFC;
+  --primary:#1e7ed8;
+  --secondary:#aad6ef;
   --light:#EEE;
   --light-alt:#61759b;
   --dark:#131A26;
@@ -18,7 +18,7 @@
   }
   
   .signup-form {
-    background-color: #18182d !important;
+    background-color: #151627c3 !important;
     appearance: none;
     padding: 10px;
     border: 2px solid transparent; /* Set initial border to transparent */
@@ -42,7 +42,7 @@
    
   }
   i{
-    color: #6a2dab4d !important;
+    color: #3642a7a7 !important;
   }
   
   .login-head {

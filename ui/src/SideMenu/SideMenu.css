@@ -1,63 +1,140 @@
-/* Add this CSS to your SideMenu.css file */
 
+/* Apply dark theme */
+.dark-theme {
+  background-color: #222222; /* Dark background color for the entire page */
+  color: #f8f9fa; /* Dark text color for the entire page */
+}
+
+.dark-theme .toggle-button {
+  background-color: #0056b3;
+}
+.dark-theme input{
+  background-color: #222222;
+  box-shadow: 2px 2px 15px rgba(81, 80, 80, 0.3);
+  color: #f8f9fa;
+}
+
+/* Add more dark-themed styles as needed */
+
+/* Light theme */
+.light-theme {
+  background-color: #908f8f;
+  color: #343a40;
+}
+
+
+
+
+
+
+
+
+
+/* Base styles */
 .side-menu {
-   
-    padding: 20px 10px;
-    position: relative;
-    font-family: 'Roboto', sans-serif;
-    transition: width 0.3s ease;
-    height: 750px;
-    border: 1px solid #c9c9c9;
-    border-radius: 5px;
-  }
-  
-  .side-menu:hover {
-    width: auto; /* Expand the menu on hover (optional) */
+  padding: 20px 10px;
+  position: relative;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  transition: width 0.3s ease;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #1f2225;
+  color: #c9c9c9;
+  overflow: hidden;
+  height: 800px;
+}
 
-  }
-  
-  /* Button to toggle options on mobile screens */
-  .toggle-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-   
-    width: 100%;
-    text-align: left;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .toggle-button.active {
-    background-color: #0056b3;
-  }
-  
-  /* Options container */
-  .options {
- 
-    margin-top: 20px;
+/* Expand the menu on hover (optional) */
+.side-menu:hover {
+  width: auto;
+}
 
+/* Button to toggle options on mobile screens */
+.toggle-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.toggle-button.active {
+  background-color: #0056b3;
+}
+
+/* Options container */
+.options {
+  margin-top: 20px;
+}
+
+.options ul {
+  padding-left: 10px;
+  list-style: none; /* Remove the default bullet points */
+}
+
+.options ul li {
+  padding: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid #343a40;
+}
+
+.options ul li:last-child {
+  border-bottom: none; /* Remove border from the last list item */
+}
+
+.options ul li:hover {
+  color: #007bff; /* Change text color on hover */
+}
+
+.profile-section{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #343a40;
+  border-top: 1px solid #343a40;
+}
+/* Light-themed styles as needed */
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.profile-info p{
+  font-size: small;
+}
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 15px;
   }
-  
-  .options ul {
-    
-    padding-left: 10px;
-    list-style:none; /* Remove the default bullet points */
-      
+
+  .profile-image {
+    width: 60px;
+    height: 60px;
   }
-  
-  .options ul li {
-    padding: 10px 0;
+
+  .profile-info h3 {
     font-size: 14px;
   }
-  
-  @media (max-width: 768px) {
-    .side-menu {
-      height: fit-content;
-      width: auto;
-    }
-  
+  .side-menu{
+    height: auto;
   }
+  .profile-info p {
+    font-size: 12px;
+  }
+}
