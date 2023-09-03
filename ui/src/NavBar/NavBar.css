@@ -8,34 +8,6 @@
   }
   
   /* Media query for smaller screens */
-  @media (max-width: 767px) {
-    .navbar-expand-lg .navbar-toggler {
-      display: block;
-      background-color:#2d2d5b; /* Customize the background color of the toggler button */
-    }
-  
-    /* Center the toggler icon */
-    .navbar-toggler-icon {
-      background-color: #fff; /* Customize the color of the toggler icon */
-    }
-  
-    .collapse.navbar-collapse {
-      position: absolute;
-      top: 56px; /* Adjust this value based on your navbar height */
-      right: 0;
-      left: 0;
-      background-color: #2d2d5b; /* Customize the background color of the collapsed menu */
-    }
-  
-    /* Adjust padding and color of collapsed menu items */
-    .navbar-nav .nav-item {
-      padding: 10px;
-    }
-  
-    .navbar-nav .nav-link {
-      color: #fff;
-    }
-  }
   .rounded-circle{
     height: 40px;
     width: 40px;
@@ -46,28 +18,7 @@
   /* NavBar.css */
 
 /* Light Theme */
-.navbar-light {
-  background-color: #f8f9fa; /* Light background color */
-  color: #343a40; /* Light text color */
-}
 
-.navbar-light .navbar-toggler-icon {
-  background-color: #343a40; /* Dark color for the toggler icon in light theme */
-}
-
-.navbar-light .nav-link {
-  color: #343a40; /* Light link text color */
-}
-
-/* Dark Theme */
-.navbar-dark {
-  background-color: #30353a; /* Dark background color */
-  color: #f8f9fa; /* Dark text color */
-}
-
-.navbar-dark .navbar-toggler-icon {
-  background-color: #f8f9fa; /* Light color for the toggler icon in dark theme */
-}
 
 .navbar-dark .nav-link {
   color: #f8f9fa; /* Dark link text color */

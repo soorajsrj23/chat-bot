@@ -111,7 +111,7 @@
         "How to be healthy",
         "How can I cope with stress?",
         "Give me coping techniques",
-        "Help me manage my emotions"
+        "stress mangement techniques"
       ],
       "responses": [
         "Healthy coping strategies include deep breathing, exercise, and talking to a friend or therapist.",
@@ -521,6 +521,31 @@
         "Healthy boundary-setting requires self-respect. Say no when needed, prioritize your needs, and be consistent in your decisions.",
         "Maintaining boundaries fosters respect. Protect your time, energy, and emotions by defining what is acceptable to you.",
         "Boundaries promote balanced relationships. Recognize when your boundaries are crossed, address it calmly, and reinforce your boundaries."
+      ]
+    },{
+      "intent": "others",
+      "text": [
+        "what can you do?",
+        "what is your ablities",
+        "ablilties"
+        
+      ],
+      "responses": [
+        "I can provide necessary data about mental health.",
+        "I know about mental health."
+      ]
+    },
+    {
+      "intent": "thanks",
+      "text": [
+        "thanks for support",
+        "thanks",
+        "nice to have a friend like you"
+        
+      ],
+      "responses": [
+        "its an pleasure to help you.",
+        "its my pleasure."
       ]
     }
  

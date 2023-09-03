@@ -1,0 +1,63 @@
+/* Add this CSS to your SideMenu.css file */
+
+.side-menu {
+   
+    padding: 20px 10px;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    transition: width 0.3s ease;
+    height: 750px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+  }
+  
+  .side-menu:hover {
+    width: auto; /* Expand the menu on hover (optional) */
+
+  }
+  
+  /* Button to toggle options on mobile screens */
+  .toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+   
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-button.active {
+    background-color: #0056b3;
+  }
+  
+  /* Options container */
+  .options {
+ 
+    margin-top: 20px;
+
+  }
+  
+  .options ul {
+    
+    padding-left: 10px;
+    list-style:none; /* Remove the default bullet points */
+      
+  }
+  
+  .options ul li {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    .side-menu {
+      height: fit-content;
+      width: auto;
+    }
+  
+  }

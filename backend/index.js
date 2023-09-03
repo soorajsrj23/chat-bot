@@ -152,14 +152,14 @@ io.on('connection', (socket) => {
     try {
       // Save the message to the database
  
-      const userMessage = new Chat({ user:data.user, message: data.text });
+      const userMessage = new Chat({ user:data.user, message: data.text,sender:data.sender });
     await userMessage.save();
 
     // Process the message and generate a response
     const response = await manager.process('en', data.text);
     
     // Save the bot's response to the database
-    const botMessage = new Chat({ user: 'bot', message: response.answer });
+    const botMessage = new Chat({ user: 'bot', message: response.answer,intent:response.intent,sender:data.sender });
     await botMessage.save();
     console.log(response)
 
@@ -292,12 +292,12 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.get("/previousChat",  async (req, res) => {
+app.get("/previousChat",  authenticate,async (req, res) => {
   try {
    
     // Fetch chats where userId matches the authenticated user's ID
     const chats = await Chat.find({
-      user: { $in: ['user', 'bot'] },
+      sender:req.user._id
     });
 
     res.status(200).json({ chats });

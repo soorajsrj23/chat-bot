@@ -55,9 +55,9 @@ function Navbar() {
             <a className="nav-link" href="/profile">Profile</a>
           </li>
         </ul>
-        <button className="btn btn-outline-secondary" onClick={toggleTheme}>
+        <div onClick={toggleTheme}>
           Change Theme
-        </button>
+        </div>
         {profile.image && (
           <div className="user-image">
             <img src={`data:${profile.image.contentType};base64,${profile.image.data}`} alt="User" className="rounded-circle" />

@@ -6,6 +6,7 @@ import Login from './Login/Login';
 import EditProfile from './Profile/EditProfile'
 
 import Chat from './Chat/Chat'
+import ChatPage from './Pages/ChatPage';
 function App() {
   return (
     <div>
@@ -18,7 +19,7 @@ function App() {
   
      <Route path='profile' element={<EditProfile/>}/>
     
-     <Route path='chat' element={<Chat/>}/>
+     <Route path='chat' element={<ChatPage/>}/>
 
     
      </Routes>

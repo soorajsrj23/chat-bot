@@ -6,22 +6,52 @@ import { useRef } from 'react';
 import anxious from '../Assets/anxious.png';
 import laughingAvatar from '../Assets/happy.png';
 import userIcon from '../Assets/userIcon.jpeg';
+import confused from '../Assets/confused.png';
+import love from '../Assets/love.png'
+import angry from '../Assets/angry.png'
+import understand from '../Assets/ooo.png'
+import happy from '../Assets/happy.png'
 import './Chat.css';
-import Navbar from '../NavBar/NavBar';
 
 const ChatComponent = () => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState('');
   const [chats, setChats] = useState([]);
   const [detectedEmotion, setDetectedEmotion] = useState('');
+  const [currentUser,setCurrentUser]=useState({});
   const defaultEmotion = 'neutral';
   const chatMessagesRef = useRef(null);
  
+  const getUserInfo = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/current-user', {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      });
+
+        // If the API call is successful, set the data to the state
+        setCurrentUser(response.data);
+        console.log("data fetched successfully"+currentUser._id);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+useEffect(()=>{
+  getUserInfo();
+
+},[])
 
   const emotionAvatarMap = {
     Depression: anxious,
     PositiveDistractions: laughingAvatar,
     neutral: laughingAvatar,
+    CustomResponse:confused,
+    PositiveAffirmations:love,
+    thanks:love,
+    Resources:understand
   };
 
   useEffect(() => {
@@ -36,7 +66,10 @@ const ChatComponent = () => {
     });
 
     axios
-      .get('http://localhost:4000/previousChat')
+      .get('http://localhost:4000/previousChat', {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        }})
       .then((response) => {
         setChats(response.data.chats);
       })
@@ -49,7 +82,7 @@ const ChatComponent = () => {
 
   const sendMessage = () => {
     if (socket) {
-      socket.emit('message', { text: message, user: 'user' });
+      socket.emit('message', { text: message, user: 'user',sender:currentUser._id });
       const newChatEntry = { text: message, user: 'user' };
       setChats((prevChats) => [...prevChats, newChatEntry]);
       setMessage('');
@@ -60,7 +93,7 @@ const ChatComponent = () => {
   return (
    
     <div className="container-fluid chat-container ">
-      <Navbar/>
+   
       <div className="row">
         <div className="col-md-12 chat-section chat-messages">
           <div className="chat-messages"  ref={chatMessagesRef} >
