@@ -85,7 +85,7 @@
   border: 1px solid #c4c5c7;
   border-radius: 6px;
   height: 50px;
-  
+  width: auto;
 }
 
 .send-button {

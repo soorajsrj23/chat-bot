@@ -6,6 +6,16 @@ function SideMenu() {
   const [showButton, setShowButton] = useState(window.innerWidth <= 768);
   const [showOptions, setShowOptions] = useState(window.innerWidth > 768);
   const [theme, setTheme] = useState('light'); // Initialize with 'light' theme
+  const [showAboutModal, setShowAboutModal] = useState(false);
+
+  const openAboutModal = () => {
+    setShowAboutModal(true);
+  };
+
+  const closeAboutModal = () => {
+    setShowAboutModal(false);
+  };
+
 
   const API_BASE = "http://localhost:4000";
 
@@ -72,7 +82,18 @@ function SideMenu() {
       {showOptions && (
         <div className="options">
           <ul>
-            <li>About</li>
+            <li onClick={openAboutModal}>About</li>
+            {showAboutModal && (
+        <div className="about-modal">
+          <div className="modal-content">
+            <span className="close-modal" onClick={closeAboutModal}>
+              &times;
+            </span>
+            <h2>About EmoCoach</h2>
+            <p>MentalWellBot is a virtual companion dedicated to supporting users in their mental health journeys. It is designed to address various mental health concerns, including stress, anxiety, depression, loneliness, and more. The chatbot's core purpose is to create a safe and accessible space for individuals to seek information, assistance, and emotional support.</p>
+          </div>
+        </div>
+      )}
             <li>Edit Profile</li>
             <li onClick={toggleTheme}>Change Theme</li>
           </ul>
@@ -93,6 +114,7 @@ function SideMenu() {
       </div>
       </div>
       )}
+      
     </div>
   );
 }

@@ -63,6 +63,7 @@ useEffect(()=>{
       const newChatEntry = { text: message, user, intent };
       setChats((prevChats) => [...prevChats, newChatEntry]);
       setDetectedEmotion(intent);
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
     });
 
     axios
@@ -80,15 +81,20 @@ useEffect(()=>{
     return () => newSocket.disconnect();
   }, []);
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    sendMessage();
+  };
   const sendMessage = () => {
     if (socket) {
       socket.emit('message', { text: message, user: 'user',sender:currentUser._id });
       const newChatEntry = { text: message, user: 'user' };
       setChats((prevChats) => [...prevChats, newChatEntry]);
       setMessage('');
-      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+      
     }
   };
+ 
 
   return (
    
@@ -122,6 +128,7 @@ useEffect(()=>{
               </div>
             ))}
           </div>
+          <form onSubmit={handleFormSubmit}>
           <div className="input-container">
             <input
               className=" message-input"
@@ -129,12 +136,12 @@ useEffect(()=>{
               value={message}
               placeholder="   Type your message here..."
               onChange={(e) => setMessage(e.target.value)}
-              required 
             />
             <button className="btn btn-outline-secondary send-button" onClick={sendMessage}>
               Send
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>
