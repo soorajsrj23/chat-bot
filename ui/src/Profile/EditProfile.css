@@ -20,7 +20,6 @@
   font-family: 'Roboto';
 }
 
-
 label {
   font-weight: bold;
   color: #898a8a;
@@ -34,7 +33,7 @@ label {
   min-height: 40px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid #2236485d; /* Dark border */
+  border: 1px solid #2c455ceb; /* Dark border */
 }
 
 input:focus {

@@ -8,6 +8,7 @@ function SideMenu() {
   const [showOptions, setShowOptions] = useState(window.innerWidth > 768);
   const [theme, setTheme] = useState('light'); // Initialize with 'light' theme
   const [showAboutModal, setShowAboutModal] = useState(false);
+  const history=useNavigate();
 
   const openAboutModal = () => {
     setShowAboutModal(true);
@@ -17,6 +18,10 @@ function SideMenu() {
     setShowAboutModal(false);
   };
 
+ const LogOut=()=>{
+  localStorage.removeItem('token');
+  history('/login');
+ }
 
   const API_BASE = "http://localhost:4000";
 
@@ -39,7 +44,7 @@ function SideMenu() {
       console.error(error);
     }
   }
-  const history=useNavigate();
+ 
 
 const moveToEditProfile=()=>{
   history('/profile')
@@ -78,12 +83,16 @@ const moveToEditProfile=()=>{
     <div className="side-menu">
       {/* Button to toggle options on small screens */}
       {showButton && (
+       <div className='navbar_with_button'>
+        
         <button
           className={`toggle-button ${showOptions ? 'active' : ''}`}
           onClick={toggleOptions}
         >
+          <p>EmoCoach</p>
           {showOptions ? 'x' : '='}
         </button>
+        </div>
       )}
 
       {/* Options (conditionally visible based on showOptions state) */}
@@ -98,7 +107,7 @@ const moveToEditProfile=()=>{
               &times;
             </span>
             <h2>About EmoCoach</h2>
-            <p>MentalWellBot is a virtual companion dedicated to supporting users in their mental health journeys. It is designed to address various mental health concerns, including stress, anxiety, depression, loneliness, and more. The chatbot's core purpose is to create a safe and accessible space for individuals to seek information, assistance, and emotional support.</p>
+            <p>EmoCoach is a virtual companion dedicated to supporting users in their mental health journeys. It is designed to address various mental health concerns, including stress, anxiety, depression, loneliness, and more. The chatbot's core purpose is to create a safe and accessible space for individuals to seek information, assistance, and emotional support.</p>
           </div>
         </div>
       )}
@@ -110,7 +119,7 @@ const moveToEditProfile=()=>{
         <div className="profile-image">
         {profile.image && (
           <div className="user-image">
-            <img src={`data:${profile.image.contentType};base64,${profile.image.data}`} alt="User" className="rounded-circle" />
+            <img src={`data:${profile.image.contentType};base64,${profile.image.data}`} alt="User" className="profile-icon" />
           </div>
         )}
         </div>
@@ -118,6 +127,7 @@ const moveToEditProfile=()=>{
           <h3>{profile.name}</h3>
           <p>{profile.email}</p>
           {/* Add more profile information as needed */}
+          <p onClick={LogOut}>Log Out</p>
         </div>
       </div>
       </div>

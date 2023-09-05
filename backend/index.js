@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 const { NlpManager } = require('node-nlp');
 const fs = require('fs'); // Import the File System module
 
-// Load the JSON dataset
 const dataset = require('./dataSet/Intent.json'); // Replace with the actual path
 
 

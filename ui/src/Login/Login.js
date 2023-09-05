@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-//import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { Container, Row, Col, FormGroup, Label } from 'reactstrap';
 import './Login.css'
 const Login = () => {
@@ -21,7 +21,7 @@ const Login = () => {
       localStorage.setItem('token', token);
 
       // Redirect to profile page
-  //    toast.success("Login Successfull");
+     toast.success("Login Successfull");
      navigate('/chat');
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -29,7 +29,7 @@ const Login = () => {
     //    toast.error(error);
       } else {
         setError('An error occurred during login');
-      //  toast.error(error.message);
+        toast.error(error.message);
       }
     }
   };

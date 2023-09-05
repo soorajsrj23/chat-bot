@@ -61,14 +61,16 @@
 .user-message {
   padding: 10px;
   border-radius: 10px;
-  background-color: #5b5b5bcc;
+  background: rgb(127,127,127);
+  background: linear-gradient(0deg, rgba(127, 127, 127, 0.684) 28%, rgb(130, 130, 130) 100%);
   max-width: 60%;
  
 }
 .bot-message {
   padding: 10px;
   border-radius: 10px;
-  background-color: #07a3f1;
+  background: rgb(21,211,255);
+  background: linear-gradient(0deg, rgba(21,211,255,1) 0%, rgba(45,130,253,1) 100%);
   max-width: 60%;
  
 }
@@ -87,7 +89,7 @@
   border: 1px solid #c4c5c7;
   border-radius: 6px;
   height: 50px;
-  max-width: 50%;
+  max-width: 80%;
   margin-left: 10px;
 
   
@@ -132,4 +134,10 @@
 
 .chat-messages::-webkit-scrollbar-track {
   background-color: #7c7c7c; /* Color of the scrollbar track */
+}
+@media (min-width: 768px) {
+  .message-input {
+    max-width: 70%;
+   
+  }
 }

@@ -1,0 +1,36 @@
+/* CSS styles for NotFound component */
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  .not-found-content {
+    text-align: center;
+  }
+  
+  .not-found-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .not-found-message {
+    font-size: 1rem;
+    color: #777;
+    margin: 10px 0;
+  }
+  
+  .not-found-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .not-found-link:hover {
+    color: #0056b3;
+  }
+  
