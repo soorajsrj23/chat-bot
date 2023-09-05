@@ -15,7 +15,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
 }
 
@@ -28,15 +28,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: fit-content;
   background-color:transparent;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.selected-image {
-  max-height: 100%;
-  max-width: 100%;
+.selected-image  {
+  max-height: 50%;
+  max-width: 50%;
+  border-radius: 50%;
 }
 
 .fileInputLabel {
@@ -51,8 +52,12 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .signup-form {
-    padding: 15px;
+ 
+  .selected-image  {
+    max-height: 20%;
+    max-width: 20%;
+    border-radius: 50%;
+   
   }
 }
 

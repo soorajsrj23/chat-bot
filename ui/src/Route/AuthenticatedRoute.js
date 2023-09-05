@@ -19,7 +19,7 @@ const AuthenticatedRoute = ({ children }) => {
       // Token is not available, redirect to the '/login' route
       history('/login');
     }
-  });
+  }, []);
 
   // Render the children components
   return <>{children}</>;

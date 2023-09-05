@@ -44,11 +44,11 @@ const SignUp = () => {
           toast.error(error.message);
         });
     } else {
-    toast.error('Please fill in all the fields');
+      toast.error('Please fill in all the fields');
     }
   };
 
-  const moveTologin=()=>{
+  const moveTologin = () => {
     navigate('/login')
   }
 
@@ -62,15 +62,15 @@ const SignUp = () => {
                 {selectedFile ? (
                   <div className="selected-image-wrapper">
                     <img src={URL.createObjectURL(selectedFile)} alt="Selected" className="selected-image" />
-                    </div>
+                  </div>
                 ) : (
-                  <p>add image</p>
+                  <div className='add_icon'>
+                    <i className="bi bi-person-bounding-box"></i>
+                  </div>
                 )}
                 <label htmlFor="fileInput" className="fileInputLabel">
-                  <div className='add_icon'>
-                  <i class="bi bi-person-bounding-box"></i>
-                </div>
                   <input type="file" id="fileInput" className="fileInput" onChange={handleFileSelect} />
+                  <p className='text-light'>select Image</p>
                 </label>
               </div>
               
@@ -87,10 +87,8 @@ const SignUp = () => {
                   Email
                 </Label>
                 <br />
-                
                 <input type="email" id="email" className="dark" value={email} onChange={(e) => setEmail(e.target.value)} />
               </FormGroup>
-
               <FormGroup>
                 <Label for="password" className="inputsFieldName">
                   Password
@@ -99,12 +97,11 @@ const SignUp = () => {
                 <input type="password" id="password" className="dark" value={password} onChange={(e) => setPassword(e.target.value)} />
               </FormGroup>
               <center>
-                <button type="button" class="btn btn-outline-light" onClick={handleSignup}>
+                <button type="button" className="btn btn-outline-light" onClick={handleSignup}>
                   Sign Up
                 </button>
-                  <p>Already have an account <u onClick={moveTologin}>login</u></p>
+                <p>Already have an account <u onClick={moveTologin}>login</u></p>
               </center>
-            
             </div>
           </Col>
         </Row>
