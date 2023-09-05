@@ -75,7 +75,9 @@ const EditProfile = () => {
 
   return (
     <div className='parent-edit-profile'>
-    <form className="dark-theme" style={{ textAlign: 'left' }} onSubmit={handleSubmit}>
+      <h3 className='form_header'>Edit Profile</h3>
+    <form className="dark-theme-form"  onSubmit={handleSubmit}>
+    
      <div>
     {fetchedImage && (
       <div className='image-container'>
@@ -93,21 +95,26 @@ const EditProfile = () => {
 
   <div className='form-group'>
         <label>Name:</label>
+        <br/>
         <input type="text" className='darkInputs' value={name} onChange={(e) => setName(e.target.value)} />
       </div>
-
       <div  className='form-group'>
         <label>Email:</label>
+        <br/>
+      
         <input type="email" value={email} className='darkInputs' onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div  className='form-group'>
+       <br/>
+      
         <label>Password:</label>
         <input type="password" className='darkInputs' value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       
       <br/>
-      
-      <Button  class="btn btn-outline-dark" type="submit">Update Profile</Button>
+      <div  className='form-group'>
+      <Button className='edit_profile_button' type="submit">Update Profile</Button>
+      </div>
     </form>
     </div>
   );

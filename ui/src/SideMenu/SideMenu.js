@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './SideMenu.css';
 
 function SideMenu() {
@@ -38,6 +39,13 @@ function SideMenu() {
       console.error(error);
     }
   }
+  const history=useNavigate();
+
+const moveToEditProfile=()=>{
+  history('/profile')
+
+}
+
 
   const toggleTheme = () => {
     // Toggle between 'light' and 'dark' themes
@@ -94,7 +102,7 @@ function SideMenu() {
           </div>
         </div>
       )}
-            <li>Edit Profile</li>
+            <li onClick={moveToEditProfile}>Edit Profile</li>
             <li onClick={toggleTheme}>Change Theme</li>
           </ul>
         

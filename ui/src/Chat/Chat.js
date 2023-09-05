@@ -81,10 +81,7 @@ useEffect(()=>{
     return () => newSocket.disconnect();
   }, []);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    sendMessage();
-  };
+
   const sendMessage = () => {
     if (socket) {
       socket.emit('message', { text: message, user: 'user',sender:currentUser._id });
@@ -128,7 +125,6 @@ useEffect(()=>{
               </div>
             ))}
           </div>
-          <form onSubmit={handleFormSubmit}>
           <div className="input-container">
             <input
               className=" message-input"
@@ -137,11 +133,10 @@ useEffect(()=>{
               placeholder="   Type your message here..."
               onChange={(e) => setMessage(e.target.value)}
             />
-            <button className="btn btn-outline-secondary send-button" onClick={sendMessage}>
+            <button className="btn btn-primary btn-lg send-button " onClick={sendMessage}>
               Send
             </button>
           </div>
-          </form>
         </div>
       </div>
     </div>

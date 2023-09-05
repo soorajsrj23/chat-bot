@@ -6,7 +6,7 @@
 }
 
 .dark-theme .toggle-button {
-  background-color: #0056b3;
+  background-color: #212121;
 }
 .dark-theme input{
   background-color: #222222;
@@ -92,7 +92,7 @@
 }
 
 .options ul li:hover {
-  color: #007bff; /* Change text color on hover */
+  color: #1a89ff; /* Change text color on hover */
 }
 
 .profile-section{
