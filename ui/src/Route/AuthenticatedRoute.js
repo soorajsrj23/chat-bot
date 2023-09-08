@@ -14,7 +14,7 @@ const AuthenticatedRoute = ({ children }) => {
     // Check if the token is available
     if (isTokenAvailable()) {
       // Token is available, redirect to the '/chat' route
-      history('/chat');
+     // history('/chat');
     } else {
       // Token is not available, redirect to the '/login' route
       history('/login');

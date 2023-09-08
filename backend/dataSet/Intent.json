@@ -16,21 +16,6 @@
       ]
     },
     {
-      "intent": "Feeling",
-      "text": [
-        "I'm feeling down",
-        "I'm feeling anxious",
-        "I'm feeling stressed",
-        "I'm feeling overwhelmed"
-      ],
-      "responses": [
-        "I'm here to listen. Would you like to talk about why you're feeling this way?",
-        "I'm sorry to hear that. Remember that you're not alone. Can you share more about your feelings?",
-        "It's okay to feel this way sometimes. Would you like to share your thoughts with me?",
-        "You're not alone in feeling like this. I'm here to support you."
-      ]
-    },
-    {
       "intent": "Self-care",
       "text": [
         "What can I do for self-care",
@@ -166,11 +151,11 @@
       ]
     },
     {
-      "intent": "StressManagement",
+      "intent": "Stress",
       "text": [
         "How can I manage stress?",
         "Give me stress-relief techniques",
-        "I'm feeling overwhelmed",
+        "I'm feeling stressed",
         "Help me handle stress"
       ],
       "responses": [
@@ -195,7 +180,7 @@
         "Being thankful can enhance your well-being. Express gratitude to yourself and others regularly."
       ]
     },{
-      "intent": "Loneliness",
+      "intent": "Alone",
       "text": [
         "I'm feeling lonely",
         "I feel isolated",
@@ -464,7 +449,7 @@
       ]
     },
     {
-      "intent": "Loneliness",
+      "intent": "Alone",
       "text": [
         "I feel lonely",
         "Dealing with loneliness",
@@ -535,6 +520,339 @@
         "I know about mental health."
       ]
     },
+    {
+      "intent": "Happy",
+      "text": [
+        "I'm feeling happy",
+        "Tell me about happiness",
+        "Ways to boost my mood",
+        "How to find happiness"
+      ],
+      "responses": [
+        "Happiness is a wonderful emotion. Engage in activities that bring you joy and connect with loved ones to enhance your happiness.",
+        "Finding happiness often involves gratitude and mindfulness. Focus on the positive aspects of your life to experience more joy.",
+        "Boosting your mood can be achieved through simple acts of kindness, spending time in nature, and practicing mindfulness.",
+        "Happiness is contagious. Share your joy with others, and it will multiply."
+      ]
+    },
+    {
+      "intent": "Sad",
+      "text": [
+        "I'm feeling sad",
+        "Dealing with sadness",
+        "How to overcome sadness",
+        "Tell me about the emotion of sadness"
+      ],
+      "responses": [
+        "Sadness is a natural emotion. Allow yourself to feel it, and reach out to supportive friends or professionals if needed.",
+        "Dealing with sadness often involves self-compassion. Take care of yourself, express your feelings, and seek comfort from loved ones.",
+        "Overcoming sadness may require time. Engage in activities you enjoy, practice relaxation techniques, and consider therapy if it persists.",
+        "Sadness can lead to personal growth. Reflect on your feelings and use them as a catalyst for positive change."
+      ]
+    },
+    {
+      "intent": "Fear",
+      "text": [
+        "I'm feeling afraid",
+        "Dealing with fear",
+        "How to overcome fear",
+        "Tell me about the emotion of fear"
+      ],
+      "responses": [
+        "Fear is a natural response to perceived threats. Practice deep breathing and positive visualization to manage it.",
+        "Dealing with fear involves understanding it. Identify your fears, challenge irrational thoughts, and seek support if necessary.",
+        "Overcoming fear may require gradual exposure. Take small steps to face your fears, and celebrate your successes along the way.",
+        "Fear can be a motivator for change. Use it as a driving force to pursue your goals and aspirations."
+      ]
+    },
+    {
+      "intent": "Anger",
+      "text": [
+        "I'm feeling angry",
+        "Dealing with anger",
+        "How to control anger",
+        "Tell me about the emotion of anger"
+      ],
+      "responses": [
+        "Anger is a natural emotion. Practice relaxation techniques, like deep breathing, to manage it in healthy ways.",
+        "Dealing with anger involves self-awareness. Identify your triggers, communicate your feelings, and seek constructive solutions.",
+        "Controlling anger may require time and effort. Explore anger management techniques and consider seeking therapy if needed.",
+        "Anger can be a source of change. Channel your anger into productive actions and advocate for what you believe in."
+      ]
+    },
+    {
+      "intent": "Disgust",
+      "text": [
+        "I'm feeling disgusted",
+        "Dealing with disgust",
+        "How to handle feelings of disgust",
+        "Tell me about the emotion of disgust"
+      ],
+      "responses": [
+        "Disgust is a natural reaction to unpleasant stimuli. Take steps to remove yourself from what's causing the disgust.",
+        "Dealing with disgust involves setting boundaries. Avoid situations or substances that trigger disgust, and practice self-care.",
+        "Handling feelings of disgust may involve desensitization. Gradually expose yourself to the source of disgust in a controlled way.",
+        "Disgust can protect your well-being. Use it as a signal to make healthier choices and maintain personal hygiene."
+      ]
+    },
+    {
+      "intent": "Love",
+      "text": [
+        "I'm feeling loved",
+        "Tell me about love",
+        "Ways to express love",
+        "How to nurture love"
+      ],
+      "responses": [
+        "Love is a powerful and positive emotion. Express it through words and actions to strengthen your connections with others.",
+        "Love is a universal language. Show love and affection to those close to you, and it will be reciprocated.",
+        "Nurturing love requires effort and care. Spend quality time with loved ones, communicate openly, and prioritize their happiness.",
+        "Love can bring immense joy and fulfillment. Cherish the moments of love in your life and celebrate them."
+      ]
+    },
+    {
+      "intent": "Excitement",
+      "text": [
+        "I'm feeling excited",
+        "Dealing with excitement",
+        "How to handle high excitement",
+        "Tell me about the emotion of excitement"
+      ],
+      "responses": [
+        "Excitement is a delightful emotion. Embrace it and channel it into activities that bring you joy and fulfillment.",
+        "Dealing with excitement involves focus. Use your excitement as motivation to pursue your goals and dreams.",
+        "Handling high excitement may require grounding techniques. Practice mindfulness and deep breathing to stay balanced.",
+        "Excitement can be a driving force for creativity and achievement. Let it inspire you to explore new horizons."
+      ]
+    },
+    {
+      "intent": "Calmness",
+      "text": [
+        "I'm feeling calm",
+        "Dealing with calmness",
+        "How to achieve a state of calm",
+        "Tell me about the emotion of calmness"
+      ],
+      "responses": [
+        "Calmness is a peaceful emotion. Enjoy moments of tranquility and use them to recharge your mind and body.",
+        "Dealing with calmness involves relaxation. Engage in calming activities like meditation, deep breathing, or nature walks.",
+        "Achieving a state of calm requires stress management. Identify sources of stress and adopt healthy coping strategies.",
+        "Calmness can lead to clarity and inner peace. Use it as a foundation for making thoughtful decisions and finding serenity."
+      ]
+    },
+    {
+      "intent": "Pride",
+      "text": [
+        "I'm feeling proud",
+        "Dealing with pride",
+        "How to express pride in achievements",
+        "Tell me about the emotion of pride"
+      ],
+      "responses": [
+        "Pride is a sense of accomplishment. Acknowledge your achievements and let them boost your self-esteem.",
+        "Dealing with pride involves humility. Share your successes with modesty and acknowledge the contributions of others.",
+        "Expressing pride in achievements can inspire others. Be a role model and encourage others to pursue their goals.",
+        "Pride can be a source of motivation. Use it to set new goals and continue your journey of growth and success."
+      ]
+    },
+    {
+      "intent": "Guilt",
+      "text": [
+        "I'm feeling guilty",
+        "Dealing with guilt",
+        "How to overcome guilt",
+        "Tell me about the emotion of guilt"
+      ],
+      "responses": [
+        "Guilt is a natural response to actions that go against your values. Use it as an opportunity for reflection and growth.",
+        "Dealing with guilt involves taking responsibility. Apologize and make amends if your actions have affected others negatively.",
+        "Overcoming guilt may require self-forgiveness. Recognize that nobody is perfect, and learn from your mistakes.",
+        "Guilt can lead to positive change. Use it as motivation to make better choices and act in alignment with your values."
+      ]
+    },
+    {
+      "intent": "Jealousy",
+      "text": [
+        "I'm feeling jealous",
+        "Dealing with jealousy",
+        "How to overcome jealousy",
+        "Tell me about the emotion of jealousy"
+      ],
+      "responses": [
+        "Jealousy is a natural emotion, but it can be challenging. Acknowledge it and work on building self-confidence and trust in relationships.",
+        "Dealing with jealousy involves open communication. Discuss your feelings with your partner or friends to better understand the source.",
+        "Overcoming jealousy requires self-reflection. Identify insecurities and work on personal growth and self-acceptance.",
+        "Jealousy can be a signal for personal growth. Use it as an opportunity to strengthen your relationships and enhance self-esteem."
+      ]
+    },
+    {
+      "intent": "Hope",
+      "text": [
+        "I'm feeling hopeful",
+        "Dealing with hope",
+        "How to nurture hope",
+        "Tell me about the emotion of hope"
+      ],
+      "responses": [
+        "Hope is a positive and motivating emotion. Cultivate it by setting achievable goals and focusing on a brighter future.",
+        "Dealing with hope involves optimism. Maintain a positive outlook on life and believe in your ability to overcome challenges.",
+        "Nurturing hope requires resilience. Embrace setbacks as opportunities for growth and keep moving forward.",
+        "Hope can be a powerful force for change. Use it to inspire and uplift yourself and those around you."
+      ]
+    },
+    {
+      "intent": "Shame",
+      "text": [
+        "I'm feeling ashamed",
+        "Dealing with shame",
+        "How to heal from shame",
+        "Tell me about the emotion of shame"
+      ],
+      "responses": [
+        "Shame is a difficult emotion. Seek support from trusted individuals and consider therapy to work through feelings of shame.",
+        "Dealing with shame involves self-compassion. Understand that everyone makes mistakes and that you are worthy of forgiveness.",
+        "Healing from shame requires self-forgiveness. Accept and learn from past actions, and focus on personal growth.",
+        "Shame can be a catalyst for change. Use it as motivation to make amends and act in alignment with your values."
+      ]
+    },
+    {
+      "intent": "Surroundedness",
+      "text": [
+        "I'm feeling surrounded",
+        "Dealing with surroundedness",
+        "How to find personal space",
+        "Tell me about the emotion of surroundedness"
+      ],
+      "responses": [
+        "Feeling surrounded can be overwhelming. Seek moments of solitude and relaxation to recharge your energy.",
+        "Dealing with surroundedness involves setting boundaries. Communicate your need for personal space to those around you.",
+        "Finding personal space requires balance. Allocate time for self-care and engage in activities that bring you comfort.",
+        "Surroundedness can be a reminder of the importance of self-care. Prioritize your well-being and create opportunities for solitude."
+      ]
+    },
+    {
+      "intent": "Gratitude",
+      "text": [
+        "I'm feeling grateful",
+        "Dealing with gratitude",
+        "How to express gratitude",
+        "Tell me about the emotion of gratitude"
+      ],
+      "responses": [
+        "Gratitude is a beautiful emotion. Express it by saying thank you, keeping a gratitude journal, or performing acts of kindness.",
+        "Dealing with gratitude involves mindfulness. Focus on the positive aspects of your life and appreciate the little things.",
+        "Expressing gratitude can strengthen relationships. Let others know how much you appreciate them and their contributions.",
+        "Gratitude can lead to increased happiness and well-being. Embrace it as a daily practice to enhance your quality of life."
+      ]
+    },    
+    {
+      "intent": "Confusion",
+      "text": [
+        "I'm feeling confused",
+        "Dealing with confusion",
+        "How to clear up confusion",
+        "Tell me about the emotion of confusion"
+      ],
+      "responses": [
+        "Confusion is a normal response to complex situations. Seek clarity by asking questions and gathering information.",
+        "Dealing with confusion involves patience. Take your time to process information and consider different perspectives.",
+        "Clearing up confusion requires organization. Create a plan to address your questions or concerns systematically.",
+        "Confusion can be a stepping stone to understanding. Embrace the learning process and grow from your moments of confusion."
+      ]
+    },
+    
+    {
+      "intent": "Surprise",
+      "text": [
+        "I'm feeling surprised",
+        "Dealing with surprise",
+        "How to handle unexpected situations",
+        "Tell me about the emotion of surprise"
+      ],
+      "responses": [
+        "Surprise is a natural reaction to the unexpected. Embrace it, and use it as an opportunity to learn and adapt.",
+        "Dealing with surprise involves staying open-minded. Explore new perspectives and possibilities that unexpected situations may bring.",
+        "Handling unexpected situations requires flexibility. Adapt to change and use surprise as a chance to grow and innovate.",
+        "Surprise can add excitement to life. Embrace the unexpected, and let it bring a sense of wonder to your journey."
+      ]
+    },
+    {
+      "intent": "Anxiety",
+      "text": [
+        "I'm feeling anxious",
+        "Dealing with anxiety",
+        "How to manage anxiety",
+        "Tell me about the emotion of anxiety"
+      ],
+      "responses": [
+        "Anxiety is a common emotion. Practice relaxation techniques, such as deep breathing and mindfulness, to manage it.",
+        "Dealing with anxiety involves facing your fears. Gradual exposure and seeking support from a therapist can be helpful.",
+        "Managing anxiety requires self-care. Prioritize sleep, exercise, and a balanced diet to reduce stress.",
+        "Anxiety can be a motivator for personal growth. Use it to challenge yourself and build resilience."
+      ]
+    },
+    {
+      "intent": "Curiosity",
+      "text": [
+        "I'm feeling curious",
+        "Dealing with curiosity",
+        "How to nurture curiosity",
+        "Tell me about the emotion of curiosity"
+      ],
+      "responses": [
+        "Curiosity is a wonderful emotion. Embrace it by exploring new topics, asking questions, and seeking knowledge.",
+        "Dealing with curiosity involves staying open-minded. Be receptive to new ideas and perspectives.",
+        "Nurturing curiosity requires lifelong learning. Cultivate a growth mindset and never stop being inquisitive.",
+        "Curiosity can lead to personal and intellectual growth. Use it as a driving force for self-improvement."
+      ]
+    },
+    {
+      "intent": "Relief",
+      "text": [
+        "I'm feeling relieved",
+        "Dealing with relief",
+        "How to savor relief",
+        "Tell me about the emotion of relief"
+      ],
+      "responses": [
+        "Relief is a pleasant emotion. Savor it and appreciate the resolution of a challenging situation.",
+        "Dealing with relief involves gratitude. Express thanks for the positive outcome and acknowledge your efforts.",
+        "Savoring relief requires mindfulness. Be present in the moment and enjoy the sense of calm and contentment.",
+        "Relief can be a reminder of resilience. Use it as motivation to face future challenges with confidence."
+      ]
+    },
+    {
+      "intent": "Puzzlement",
+      "text": [
+        "I'm feeling puzzled",
+        "Dealing with puzzlement",
+        "How to solve puzzles",
+        "Tell me about the emotion of puzzlement"
+      ],
+      "responses": [
+        "Puzzlement is a natural response to mysteries. Embrace it as an opportunity for intellectual exploration and problem-solving.",
+        "Dealing with puzzlement involves curiosity. Ask questions, gather information, and seek solutions.",
+        "Solving puzzles requires critical thinking. Break complex problems into smaller parts and approach them systematically.",
+        "Puzzlement can be a source of intellectual growth. Use it to challenge your mind and expand your knowledge."
+      ]
+    },
+    {
+      "intent": "Contentment",
+      "text": [
+        "I'm feeling content",
+        "Dealing with contentment",
+        "How to find contentment",
+        "Tell me about the emotion of contentment"
+      ],
+      "responses": [
+        "Contentment is a peaceful and satisfying emotion. Savor moments of contentment and practice gratitude.",
+        "Dealing with contentment involves mindfulness. Be fully present in enjoyable moments and appreciate them.",
+        "Finding contentment requires balance. Focus on what truly matters to you and create a life that aligns with your values.",
+        "Contentment can be a source of lasting happiness. Cultivate it as a state of being rather than a fleeting emotion."
+      ]
+    },
+    
+    
     {
       "intent": "thanks",
       "text": [

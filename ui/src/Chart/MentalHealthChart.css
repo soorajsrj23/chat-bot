@@ -1,0 +1,23 @@
+.chart-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Adjust the aspect ratio as needed */
+    color: blue !important;
+  }
+  
+  /* Style for the chart canvas */
+  .chart-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:fit-content; /* Important to override default width */
+    height: fit-content; /* Important to override default height */
+  }
+  @media (width: 768px) {
+    .chart-container {
+      width: fit-content;
+      height: fit-content;
+      word-wrap: break-word;
+     
+    }
+  }

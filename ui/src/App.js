@@ -6,6 +6,7 @@ import EditProfile from './Profile/EditProfile';
 import AuthenticatedRoute from './Route/AuthenticatedRoute';
 import ChatPage from './Pages/ChatPage';
 import PageNotFound from './Route/PageNotFound'
+import MentalHealthChart from './Chart/MentalHealthChart';
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="profile" element={<AuthenticatedRoute><EditProfile /></AuthenticatedRoute>} />
           <Route path="chat" element={<AuthenticatedRoute><ChatPage /></AuthenticatedRoute>} />
+          <Route path="analytics" element={<AuthenticatedRoute><MentalHealthChart /></AuthenticatedRoute>} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Router>

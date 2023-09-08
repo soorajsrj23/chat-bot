@@ -158,7 +158,7 @@ io.on('connection', (socket) => {
     const response = await manager.process('en', data.text);
     
     // Save the bot's response to the database
-    const botMessage = new Chat({ user: 'bot', message: response.answer,intent:response.intent,sender:data.sender });
+    const botMessage = new Chat({ user: 'bot', message: response.answer,intent:response.intent ||'others',sender:data.sender });
     await botMessage.save();
     console.log(response)
 
@@ -168,7 +168,7 @@ io.on('connection', (socket) => {
       const customResponse = generateCustomResponse(data.text);
       
       // Save the bot's custom response to the database
-      const botMessage = new Chat({ user: 'bot', message: customResponse });
+      const botMessage = new Chat({ user: 'bot', message: customResponse,intent:'others' });
       await botMessage.save();
       
       // Send the custom response to the client
@@ -196,7 +196,7 @@ function generateCustomResponse(userQuery) {
   // ...
 
   // If no specific pattern is matched, provide a general response
-  return "I'm not sure I understand. Can you please provide more details or rephrase your question?";
+  return "I'm not sure I understand. Can you please provide more details or rephrase your question?or type `help` to get web results ";
 }
 
   // Handle disconnection
@@ -357,6 +357,25 @@ app.put("/edit-profile", authenticate, upload.single("image"), async (req, res) 
   }
 });
 
+app.get('/get-mood', authenticate, async (req, res) => {
+  try {
+    
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+    const moods = await Chat.find({
+      sender: req.user._id,
+      user: 'bot',
+      timestamp: { $gte: oneWeekAgo },
+    });
+
+    res.status(200).json({ moods });
+    console.log(moods);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
 
 
 

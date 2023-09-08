@@ -50,6 +50,11 @@ const moveToEditProfile=()=>{
   history('/profile')
 
 }
+const moveToAnalytics=()=>{
+  history('/analytics')
+
+}
+
 
 
   const toggleTheme = () => {
@@ -113,6 +118,7 @@ const moveToEditProfile=()=>{
       )}
             <li onClick={moveToEditProfile}>Edit Profile</li>
             <li onClick={toggleTheme}>Change Theme</li>
+            <li onClick={moveToAnalytics}>Analytics</li>
           </ul>
         
       <div className="profile-section">
